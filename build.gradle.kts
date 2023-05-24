@@ -18,6 +18,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("com.tngtech.archunit:archunit:1.0.1")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -34,4 +35,6 @@ tasks.withType<Test> {
 
 tasks.test{
 	systemProperty("junit.jupiter.execution.parallel.enabled", "true")
+	systemProperty("junit.jupiter.execution.parallel.mode.default", "same_thread")
+	systemProperty("junit.jupiter.execution.parallel.mode.classes.default", "concurrent")
 }
